@@ -5,7 +5,7 @@ import foo from './foo';
 function component () {
   var element = $('<div></div>');
 
-  element.html(_.join(['Hello','webpack'], ' '));
+  element.html(_.join(['Hello哈哈','webpack'], ' '));
   
   return element.get(0);
 }
