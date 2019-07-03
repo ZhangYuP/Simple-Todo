@@ -8,7 +8,7 @@ class TodoInput extends Component{
   }
   submit(event){
     if(event.key === 'Enter'){
-      console.log('用户按回车了')
+      this.props.onSubmit.call()
     }
   }
 }
