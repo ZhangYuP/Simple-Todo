@@ -1,4 +1,5 @@
 import React,{ Component } from 'react';
+import TodoInput from './TodoInput';
 
 class App extends Component{
   constructor(props){
@@ -17,9 +18,7 @@ class App extends Component{
     return (
       <div className="App">
         <h1>我的待办</h1>
-        <div className="inputWrapper">
-          <input type="text" value={this.state.newTodo} />
-        </div>
+        <TodoInput content={this.state.newTodo} />
         <ol>
           {todos}
         </ol>
