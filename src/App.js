@@ -15,7 +15,13 @@ AV.init({
   appId: APP_ID,
   appKey: APP_KEY
 });
-
+var TestObjectaaaaaaaa = AV.Object.extend('TestObjecte');
+var testObjectbbbbbb = new TestObjectaaaaaaaa();
+testObjectbbbbbb.save({
+  wordscccccc: 'Hello Worlddddd!'
+}).then(function(object) {
+  alert('LeanCloud Rocks!');
+})
 class App extends Component{
   constructor(props){
     super(props)
