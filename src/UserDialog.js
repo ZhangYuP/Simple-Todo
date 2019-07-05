@@ -1,4 +1,5 @@
 import React,{ Component } from 'react';
+import './UserDialog.css'
 
 class UserDialog extends Component{
   render(){
@@ -33,7 +34,7 @@ class UserDialog extends Component{
                 <input type="password" />
               </div>
               <div className="row actions">
-                <button type="submit">注册</button>
+                <button type="submit">登录</button>
               </div>
             </form>
           </div>
