@@ -17,9 +17,11 @@
 }
 .UserDialog > nav{
   padding: 1em;
+  margin-left: -2em;
 }
-.UserDialog > nav input[type=radio]:not(:first-child){
+.UserDialog > nav label{
   margin-left: 2em;
+  cursor: pointer;
 }
 .UserDialog > .panes{
   padding: 0 1em 1em;
