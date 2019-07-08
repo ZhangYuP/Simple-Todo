@@ -21,7 +21,9 @@ class UserDialog extends Component{
   signUp(e){
     e.preventDefault()
     let {username, password} = this.state.formData
-    let success = (user)=>{console.log(user)}
+    let success = (user)=>{
+      this.props.onSignUp(user)
+    }
     let error = (error)=>{console.log(error)}
     signUp(username, password, success, error)
   }

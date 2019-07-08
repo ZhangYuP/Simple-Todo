@@ -10,6 +10,7 @@ class App extends Component{
   constructor(props){
     super(props)
     this.state = {
+      user: {},
       newTodo: '',
       todoList: []
     }
@@ -25,21 +26,24 @@ class App extends Component{
         </li>
       )
     })
-    console.log(this.state)
     return (
       <div className="App">
-        <h1>我的待办</h1>
+        <h1>{this.state.user.username || '我'}的待办</h1>
         <TodoInput content={this.state.newTodo} 
           onChange={this.changeTitle.bind(this)}
           onSubmit={this.addTodo.bind(this)} />
         <ol className="todoList">
           {todos}
         </ol>
-        <UserDialog />
+        <UserDialog onSignUp={this.onSignUp.bind(this)} />
       </div>
     );
   }
   componentDidUpdate(){
+  }
+  onSignUp(user){
+    this.state.user = user
+    this.setState(this.state)
   }
   toggle(event, todo){
     todo.status = todo.status === 'completed' ? '' : 'completed'
