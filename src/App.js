@@ -42,8 +42,9 @@ class App extends Component{
   componentDidUpdate(){
   }
   onSignUp(user){
-    this.state.user = user
-    this.setState(this.state)
+    let stateCopy = JSON.parse(JSON.stringify(this.state))
+    stateCopy.user = user
+    this.setState(stateCopy)
   }
   toggle(event, todo){
     todo.status = todo.status === 'completed' ? '' : 'completed'
