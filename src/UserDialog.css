@@ -16,16 +16,22 @@
   border: 1px solid #aaa;
   box-shadow: 0 0 1em hsla(0,0%,0%,0.35);
 }
-.UserDialog > nav{
+.UserDialog .signInOrSignUp > nav{
   padding: 1em;
   margin-left: -2em;
 }
-.UserDialog > nav label{
+.UserDialog .signInOrSignUp > nav label{
   margin-left: 2em;
   cursor: pointer;
 }
-.UserDialog > .panes{
+.UserDialog .signInOrSignUp > .panes{
   padding: 0 1em 1em;
+}
+.UserDialog .forgotPassword > h3{
+  padding-top: 1em;
+}
+.UserDialog form.forgotPassword{
+  padding: 1em;
 }
 .UserDialog form > .row{
   display: flex;
