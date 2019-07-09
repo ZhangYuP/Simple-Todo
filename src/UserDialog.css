@@ -28,10 +28,10 @@
   padding: 0 1em 1em;
 }
 .UserDialog .forgotPassword > h3{
-  padding-top: 1em;
-}
-.UserDialog form.forgotPassword{
   padding: 1em;
+}
+.UserDialog .forgotPassword > form{
+  padding: 0 1em 1em;
 }
 .UserDialog form > .row{
   display: flex;
