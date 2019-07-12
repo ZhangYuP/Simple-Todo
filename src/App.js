@@ -11,19 +11,12 @@ class App extends Component{
   constructor(props){
     super(props)
     this.state = {
-      user: getCurrentUser() || {},
+      user: getCurrentUser(),
       newTodo: '',
       todoList: []
     }
-    let user = getCurrentUser()
-    if (user) {
-      TodoModel.getByUser(user, (todos)=>{
-        let stateCopy = JSON.parse(JSON.stringify(this.state))
-        stateCopy.todoList = todos
-        this.setState(stateCopy)
-      })
-    }
   }
+
   render(){
     let todos = this.state.todoList
       .filter((item)=> !item.deleted)
@@ -50,18 +43,28 @@ class App extends Component{
       </div>
     );
   }
-  componentDidUpdate(){
+  componentDidMount(){
+    let user = getCurrentUser()
+    TodoModel.getByUser(user, (todos)=>{
+      let stateCopy = JSON.parse(JSON.stringify(this.state))
+      stateCopy.todoList = todos
+      this.setState(stateCopy)
+    })
   }
   signOut(){
     signOut()
     let stateCopy = JSON.parse(JSON.stringify(this.state))
     stateCopy.user = {}
+    stateCopy.todoList = []
     this.setState(stateCopy)
   }
   onSignUpOrSignIn(user){
     let stateCopy = JSON.parse(JSON.stringify(this.state))
     stateCopy.user = user
-    this.setState(stateCopy)
+    TodoModel.getByUser(user, (todos)=>{
+      stateCopy.todoList = todos
+      this.setState(stateCopy)
+    })
   }
   toggle(event, todo){
     let oldStatus = todo.status

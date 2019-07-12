@@ -81,7 +81,7 @@ export function getCurrentUser () {
   if (user) {
     return getUserFromAVUser(user)
   } else {
-    return null
+    return {}
   }
 }
 export function signOut () {
