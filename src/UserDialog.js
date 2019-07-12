@@ -25,8 +25,14 @@ class UserDialog extends Component{
     }
     let error = (error)=>{
       switch(error.code){
+        case 125:
+          alert('电子邮箱地址无效')
+          break
         case 202:
-          alert('用户名已被占用')
+          alert('用户名已经被占用')
+          break
+        case 203:
+          alert('电子邮箱已经被占用')
           break
         default:
           alert(error)
@@ -45,6 +51,9 @@ class UserDialog extends Component{
       switch(error.code){
         case 210:
           alert('用户名与密码不匹配')
+          break
+        case 211:
+          alert('找不到用户')
           break
         default:
           alert(error)
@@ -90,7 +99,18 @@ class UserDialog extends Component{
   }
   resetPassword(e){
     e.preventDefault()
-    sendPasswordResetEmail(this.state.formData.email)
+    let email = this.state.formData.email
+    let success = ()=>{
+      alert('已发送重置密码邮件，请检查您的收件箱')
+    }
+    let error = (error)=>{
+      switch(error.code){
+        case 205:
+          alert('找不到邮箱地址对应的用户')
+          break
+      }
+    }
+    sendPasswordResetEmail(email, success, error)
   }
 }
 

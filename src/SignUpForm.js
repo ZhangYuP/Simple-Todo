@@ -5,7 +5,7 @@ export default function (props) {
     <form className="signUp" onSubmit={props.onSubmit}>
       <div className="row">
         <label>邮箱</label>
-        <input type="text" value={props.formData.email} 
+        <input type="email" value={props.formData.email} 
           onChange={props.onChange.bind(null, 'email')} />
       </div>
       <div className="row">

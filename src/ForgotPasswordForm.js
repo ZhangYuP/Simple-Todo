@@ -10,7 +10,7 @@ export default class ForgotPasswordForm extends Component{
         <form className="forgotPassword" onSubmit={this.props.onSubmit.bind(this)}>
           <div className="row">
             <label>邮箱</label>
-            <input type="text" value={this.props.formData.email}
+            <input type="email" value={this.props.formData.email}
               onChange={this.props.onChange.bind(null, 'email')} 
             />            
           </div>
