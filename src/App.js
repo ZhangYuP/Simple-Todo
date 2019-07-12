@@ -46,20 +46,20 @@ class App extends Component{
   componentDidMount(){
     let user = getCurrentUser()
     TodoModel.getByUser(user, (todos)=>{
-      let stateCopy = JSON.parse(JSON.stringify(this.state))
+      let stateCopy = copyState(this.state)
       stateCopy.todoList = todos
       this.setState(stateCopy)
     })
   }
   signOut(){
     signOut()
-    let stateCopy = JSON.parse(JSON.stringify(this.state))
+    let stateCopy = copyState(this.state)
     stateCopy.user = {}
     stateCopy.todoList = []
     this.setState(stateCopy)
   }
   onSignUpOrSignIn(user){
-    let stateCopy = JSON.parse(JSON.stringify(this.state))
+    let stateCopy = copyState(this.state)
     stateCopy.user = user
     TodoModel.getByUser(user, (todos)=>{
       stateCopy.todoList = todos
@@ -105,6 +105,10 @@ class App extends Component{
       console.log(error)
     })
   }
+}
+
+export function copyState(obj){
+  return JSON.parse(JSON.stringify(obj))
 }
 
 export default App;

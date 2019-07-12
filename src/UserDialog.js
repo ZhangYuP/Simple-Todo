@@ -3,6 +3,7 @@ import './UserDialog.css';
 import { signUp, signIn, sendPasswordResetEmail } from './leanCloud';
 import SignInOrSignUp from './SignInOrSignUp';
 import ForgotPasswordForm from './ForgotPasswordForm';
+import { copyState } from './App.js';
 
 class UserDialog extends Component{
   constructor(props){
@@ -53,7 +54,7 @@ class UserDialog extends Component{
     signIn(username, password, success, error)
   }
   changeFormData(key, e){
-    let stateCopy = JSON.parse(JSON.stringify(this.state))
+    let stateCopy = copyState(this.state)
     stateCopy.formData[key] = e.target.value
     this.setState(stateCopy)
   }
@@ -78,12 +79,12 @@ class UserDialog extends Component{
     )
   }
   showForgotPassword(){
-    let stateCopy = JSON.parse(JSON.stringify(this.state))
+    let stateCopy = copyState(this.state)
     stateCopy.selectedTab = 'forgotPassword'
     this.setState(stateCopy)
   }
   returnToSignIn(){
-    let stateCopy = JSON.parse(JSON.stringify(this.state))
+    let stateCopy = copyState(this.state)
     stateCopy.selectedTab = 'signInOrSignUp'
     this.setState(stateCopy)
   }
