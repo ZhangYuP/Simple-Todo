@@ -1,7 +1,9 @@
 .TodoInput{
   width: 100%;
   line-height: 1.8;
-  margin-bottom: 1em;
+  border-style: none;
+  border-radius: 4px;
+  margin-bottom: 2em;
   font-size: 16px;
-  padding: 0 0.2em;
+  padding: 0.3em 0.5em;
 }
