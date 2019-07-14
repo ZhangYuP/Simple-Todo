@@ -10,3 +10,6 @@
 .TodoItem > .title[data-status="completed"]{
   text-decoration: line-through;
 }
+.TodoItem > .iconfont{
+  font-size: 1.8em;
+}
