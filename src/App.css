@@ -9,6 +9,16 @@
   min-width: 32em;
   box-shadow: 0 0 1em hsla(0,0%,0%,0.15);
 }
+.App > h1{
+  position: relative;
+}
+.App > h1 > .icon-logout{
+  font-size: 0.8em;
+  position: absolute;
+  right: 4px;
+  bottom: 0;
+
+}
 .App > .todoList > li:first-child{
   border-top: 1px solid #787d85;
 }

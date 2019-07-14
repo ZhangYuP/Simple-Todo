@@ -31,7 +31,7 @@ class App extends Component{
     return (
       <div className="App">
         <h1>{this.state.user.username || '我'}的待办
-          {this.state.user.id ? <button title="登出" onClick={this.signOut.bind(this)}>登出</button> : null}
+          {this.state.user.id ? <span className="iconfont icon-logout" title="登出" onClick={this.signOut.bind(this)}></span> : null}
         </h1>
         <TodoInput content={this.state.newTodo} 
           onChange={this.changeTitle.bind(this)}
