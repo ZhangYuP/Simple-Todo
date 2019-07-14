@@ -5,10 +5,13 @@ class TodoItem extends Component{
   render(){
     return (
       <div className="TodoItem">
-        <input type="checkbox" checked={this.props.todo.status === 'completed'} 
-          onChange={this.toggle.bind(this)} /> 
-        <span className="title" data-status={this.props.todo.status}>{this.props.todo.title}</span>
-        <span className="iconfont icon-delete" title="删除" onClick={this.delete.bind(this)}></span>
+        <span className={'iconfont ' + (this.props.todo.status === 'completed' ? 'icon-checked' : 'icon-checkbox')} data-status={this.props.todo.status}
+          onClick={this.toggle.bind(this)}></span>
+        <span className={'title ' + this.props.todo.status}>
+          {this.props.todo.title}
+        </span>
+        <span className="iconfont icon-delete" title="删除" 
+          onClick={this.delete.bind(this)}></span>
       </div>
     )
   }
