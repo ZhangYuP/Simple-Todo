@@ -79,6 +79,7 @@ class App extends Component{
     stateCopy.filterFn = filterFn
     stateCopy.chooseTab = 4
     this.setState(stateCopy)
+    console.log(stateCopy)
   }
   componentDidMount(){
     let user = getCurrentUser()
@@ -114,8 +115,12 @@ class App extends Component{
     })
   }
   delete(event, todo){
-    TodoModel.destroy(todo.id, ()=>{
-      todo.deleted = true
+    let oldStatus = todo.status
+    todo.deleted = !todo.deleted
+    TodoModel.update(todo, ()=>{
+      this.setState(this.state)
+    }, (error)=>{
+      todo.status = oldStatus
       this.setState(this.state)
     })
   }

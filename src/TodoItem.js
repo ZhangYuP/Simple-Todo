@@ -10,8 +10,12 @@ class TodoItem extends Component{
         <span className={'title ' + this.props.todo.status}>
           {this.props.todo.title}
         </span>
-        <span className="iconfont icon-delete" title="删除" 
-          onClick={this.delete.bind(this)}></span>
+        {this.props.todo.deleted ?
+          <span className="iconfont icon-recover" title="恢复" 
+            onClick={this.delete.bind(this)} /> :
+          <span className="iconfont icon-delete" title="删除" 
+            onClick={this.delete.bind(this)} />
+        }        
       </div>
     )
   }
