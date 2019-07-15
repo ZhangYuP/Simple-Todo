@@ -33,6 +33,12 @@ class App extends Component{
         <h1>{this.state.user.username || '我'}的待办
           {this.state.user.id ? <span className="iconfont icon-logout" title="登出" onClick={this.signOut.bind(this)}></span> : null}
         </h1>
+        <nav>
+          <div>全部</div>
+          <div>未完成</div>
+          <div>已完成</div>
+          <div>回收站</div>
+        </nav>
         <TodoInput content={this.state.newTodo} 
           onChange={this.changeTitle.bind(this)}
           onSubmit={this.addTodo.bind(this)} />

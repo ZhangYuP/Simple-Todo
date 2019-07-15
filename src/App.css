@@ -17,7 +17,12 @@
   position: absolute;
   right: 4px;
   bottom: 0;
-
+}
+.App > nav{
+  color: #787d85;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.34em;
 }
 .App > .todoList > li:first-child{
   border-top: 1px solid #787d85;
