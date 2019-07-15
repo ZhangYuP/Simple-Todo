@@ -21,11 +21,18 @@
 .App > nav{
   color: #787d85;
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 1.34em;
+  justify-content: space-around;
+  margin-bottom: 0.84em;
 }
-.App > nav .active{
+.App > nav > div{
+  border-radius: 4px 4px 0 0;
+  padding: 0.5em;
+  width: 25%;
+}
+.App > nav > div.active{
   color: white;
+  background: linear-gradient(#494f5f 0%, #3a3f49 100%);
+  box-shadow: 1px -1px 1px hsla(0,0%,0%,0.15), -1px -1px 1px hsla(0,0%,0%,0.15);
 }
 .App > .todoList > li:first-child{
   border-top: 1px solid #787d85;
