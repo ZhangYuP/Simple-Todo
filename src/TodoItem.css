@@ -3,12 +3,11 @@
   display: flex;
   align-items: center;
 }
-.TodoItem > .icon-checked{  
-  color: #61dbfb;
+.TodoItem .iconfont{
   font-size: 1.2em;
 }
-.TodoItem > .icon-checkbox{
-  font-size: 1.2em;
+.TodoItem > .icon-checked{  
+  color: #61dbfb;
 }
 .TodoItem > .title{
   flex: 1;
@@ -17,9 +16,8 @@
 .TodoItem > .title.completed{
   text-decoration: line-through;
 }
-.TodoItem > .icon-delete{
-  font-size: 1.5em;
-}
-.TodoItem > .icon-recover{
-  font-size: 1.5em;
+.TodoItem .icon-destroy{
+  font-size: 1.2em;
+  margin-left: 1em;
+  color: #d81e06;
 }

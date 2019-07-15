@@ -26,11 +26,10 @@ class App extends Component{
       return (
         <li key={index}>
           <TodoItem todo={item} onToggle={this.toggle.bind(this)} 
-            onDelete={this.delete.bind(this)} />
+            onDelete={this.delete.bind(this)} onDestroy={this.destroy.bind(this)} />
         </li>
       )
     })
-    console.log(todos)
     return (
       <div className="App">
         <h1>{this.state.user.username || '我'}的待办
@@ -122,6 +121,13 @@ class App extends Component{
     }, (error)=>{
       todo.status = oldStatus
       this.setState(this.state)
+    })
+  }
+  destroy(event, todo){
+    let stateCopy = copyState(this.state)
+    stateCopy.todoList = stateCopy.todoList.filter((item)=> item.id !== todo.id)
+    TodoModel.destroy(todo.id, ()=>{
+      this.setState(stateCopy)
     })
   }
   changeTitle(event){

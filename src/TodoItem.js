@@ -11,10 +11,14 @@ class TodoItem extends Component{
           {this.props.todo.title}
         </span>
         {this.props.todo.deleted ?
-          <span className="iconfont icon-recover" title="恢复" 
-            onClick={this.delete.bind(this)} /> :
-          <span className="iconfont icon-delete" title="删除" 
-            onClick={this.delete.bind(this)} />
+          <span>
+            <span className="iconfont icon-recover" title="恢复"
+              onClick={this.delete.bind(this)}></span>
+            <span className="iconfont icon-destroy" title="彻底销毁"
+              onClick={this.destroy.bind(this)}></span>
+          </span> :
+          <span className="iconfont icon-delete" title="放入回收站" 
+            onClick={this.delete.bind(this)}></span>
         }        
       </div>
     )
@@ -24,6 +28,9 @@ class TodoItem extends Component{
   }
   delete(e){
     this.props.onDelete(e, this.props.todo)
+  }
+  destroy(e){
+    this.props.onDestroy(e, this.props.todo)
   }
 }
 

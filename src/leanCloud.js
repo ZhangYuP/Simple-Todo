@@ -51,7 +51,12 @@ export const TodoModel = {
     })
   },
   destroy(todoId, successFn, errorFn){
-    TodoModel.update({id: todoId, deleted: true}, successFn, errorFn)
+    let todo = AV.Object.createWithoutData('Todo', todoId)
+    todo.destroy().then(function (response) {
+      successFn && successFn.call(null)
+    }, (error)=>{
+      errorFn && errorFn.call(null, error)
+    })
   }
 }
 
