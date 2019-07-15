@@ -13,7 +13,6 @@ export default AV
 export const TodoModel = {
   getByUser(user, successFn, errorFn){
     let query = new AV.Query('Todo')
-    query.equalTo('deleted', false)
     query.find().then((response)=>{
       let array = response.map((todo)=>{
         return {id: todo.id, ...todo.attributes}
