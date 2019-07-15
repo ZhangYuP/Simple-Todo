@@ -108,6 +108,9 @@ class UserDialog extends Component{
         case 205:
           alert('找不到邮箱地址对应的用户')
           break
+        default:
+          alert('error')
+          break
       }
     }
     sendPasswordResetEmail(email, success, error)

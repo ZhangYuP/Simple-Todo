@@ -5,9 +5,9 @@ class TodoItem extends Component{
   render(){
     return (
       <div className="TodoItem">
-        <span className={'iconfont ' + (this.props.todo.status === 'completed' ? 'icon-checked' : 'icon-checkbox')} data-status={this.props.todo.status}
+        <span className={`iconfont ${this.props.todo.status === 'completed' ? 'icon-checked' : 'icon-checkbox'}`}
           onClick={this.toggle.bind(this)}></span>
-        <span className={'title ' + this.props.todo.status}>
+        <span className={`title ${this.props.todo.status}`}>
           {this.props.todo.title}
         </span>
         {this.props.todo.deleted ?
