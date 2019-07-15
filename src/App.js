@@ -78,6 +78,7 @@ class App extends Component{
     stateCopy.filterFn = filterFn
     stateCopy.chooseTab = 4
     this.setState(stateCopy)
+    console.log(stateCopy)
   }
   componentDidMount(){
     let user = getCurrentUser()
@@ -127,8 +128,6 @@ class App extends Component{
     stateCopy.todoList = stateCopy.todoList.filter((item)=> item.id !== todo.id)
     TodoModel.destroy(todo.id, ()=>{
       this.setState(stateCopy)
-    }, (error)=>{
-      console.log(error)
     })
   }
   changeTitle(event){
