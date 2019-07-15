@@ -13,13 +13,15 @@ class App extends Component{
     this.state = {
       user: getCurrentUser(),
       newTodo: '',
-      todoList: []
+      todoList: [],
+      chooseTab: 1,
+      filterFn: (item)=> !item.deleted
     }
   }
 
   render(){
     let todos = this.state.todoList
-      .filter((item)=> !item.deleted)
+      .filter(this.state.filterFn)
       .map((item,index)=>{
       return (
         <li key={index}>
@@ -28,16 +30,17 @@ class App extends Component{
         </li>
       )
     })
+    console.log(todos)
     return (
       <div className="App">
         <h1>{this.state.user.username || '我'}的待办
           {this.state.user.id ? <span className="iconfont icon-logout" title="登出" onClick={this.signOut.bind(this)}></span> : null}
         </h1>
         <nav>
-          <div>全部</div>
-          <div>未完成</div>
-          <div>已完成</div>
-          <div>回收站</div>
+          <div className={this.state.chooseTab === 1 ? 'active' : ''} onClick={this.showAllTodos.bind(this)}>全部</div>
+          <div className={this.state.chooseTab === 2 ? 'active' : ''} onClick={this.showUncompletedTodos.bind(this)}>未完成</div>
+          <div className={this.state.chooseTab === 3 ? 'active' : ''} onClick={this.showCompletedTodos.bind(this)}>已完成</div>
+          <div className={this.state.chooseTab === 4 ? 'active' : ''} onClick={this.showDeletedTodos.bind(this)}>回收站</div>
         </nav>
         <TodoInput content={this.state.newTodo} 
           onChange={this.changeTitle.bind(this)}
@@ -48,6 +51,34 @@ class App extends Component{
         {this.state.user.id ? null : <UserDialog onSignUp={this.onSignUpOrSignIn.bind(this)} onSignIn={this.onSignUpOrSignIn.bind(this)} />}
       </div>
     );
+  }
+  showAllTodos(){
+    let filterFn = (item)=> !item.deleted
+    let stateCopy = copyState(this.state)
+    stateCopy.filterFn = filterFn
+    stateCopy.chooseTab = 1
+    this.setState(stateCopy)
+  }
+  showUncompletedTodos(){
+    let filterFn = (item)=> !item.deleted && !item.status
+    let stateCopy = copyState(this.state)
+    stateCopy.filterFn = filterFn
+    stateCopy.chooseTab = 2
+    this.setState(stateCopy)
+  }
+  showCompletedTodos(){
+    let filterFn = (item)=> !item.deleted && item.status
+    let stateCopy = copyState(this.state)
+    stateCopy.filterFn = filterFn
+    stateCopy.chooseTab = 3
+    this.setState(stateCopy)
+  }
+  showDeletedTodos(){
+    let filterFn = (item)=> item.deleted
+    let stateCopy = copyState(this.state)
+    stateCopy.filterFn = filterFn
+    stateCopy.chooseTab = 4
+    this.setState(stateCopy)
   }
   componentDidMount(){
     let user = getCurrentUser()

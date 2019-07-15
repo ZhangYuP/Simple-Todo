@@ -24,6 +24,9 @@
   justify-content: space-between;
   margin-bottom: 1.34em;
 }
+.App > nav .active{
+  color: white;
+}
 .App > .todoList > li:first-child{
   border-top: 1px solid #787d85;
 }
