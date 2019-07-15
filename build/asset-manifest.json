@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Simple-Todo/build/static/css/main.05acdc37.chunk.css",
-    "main.js": "/Simple-Todo/build/static/js/main.9760bf04.chunk.js",
-    "main.js.map": "/Simple-Todo/build/static/js/main.9760bf04.chunk.js.map",
+    "main.js": "/Simple-Todo/build/static/js/main.187d7ad3.chunk.js",
+    "main.js.map": "/Simple-Todo/build/static/js/main.187d7ad3.chunk.js.map",
     "runtime~main.js": "/Simple-Todo/build/static/js/runtime~main.a2e4e8c2.js",
     "runtime~main.js.map": "/Simple-Todo/build/static/js/runtime~main.a2e4e8c2.js.map",
     "static/css/2.764ccc25.chunk.css": "/Simple-Todo/build/static/css/2.764ccc25.chunk.css",
     "static/js/2.f37a64e1.chunk.js": "/Simple-Todo/build/static/js/2.f37a64e1.chunk.js",
     "static/js/2.f37a64e1.chunk.js.map": "/Simple-Todo/build/static/js/2.f37a64e1.chunk.js.map",
     "index.html": "/Simple-Todo/build/index.html",
-    "precache-manifest.ae9b164fcad18dadac2d13c6d78f7899.js": "/Simple-Todo/build/precache-manifest.ae9b164fcad18dadac2d13c6d78f7899.js",
+    "precache-manifest.1f899071647bc008b8712b4b857aa677.js": "/Simple-Todo/build/precache-manifest.1f899071647bc008b8712b4b857aa677.js",
     "service-worker.js": "/Simple-Todo/build/service-worker.js",
     "static/css/2.764ccc25.chunk.css.map": "/Simple-Todo/build/static/css/2.764ccc25.chunk.css.map",
     "static/css/main.05acdc37.chunk.css.map": "/Simple-Todo/build/static/css/main.05acdc37.chunk.css.map"
