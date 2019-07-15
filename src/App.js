@@ -126,8 +126,10 @@ class App extends Component{
   destroy(event, todo){
     let stateCopy = copyState(this.state)
     stateCopy.todoList = stateCopy.todoList.filter((item)=> item.id !== todo.id)
-    TodoModel.destroy(todo.id, ()=>{
+    TodoModel.destroy(todo.id, ()=> {
       this.setState(stateCopy)
+    }, (error)=> {
+      console.log(error)
     })
   }
   changeTitle(event){
